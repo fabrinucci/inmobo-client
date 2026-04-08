@@ -4,13 +4,14 @@ import { getProperty } from '@/services';
 import { PropertyCard } from '@/components/properties';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function Page({ params }: Props) {
-  const property = await getProperty({ slug: params.slug });
+  const { slug } = await params;
+  const property = await getProperty({ slug });
   if (!property) redirect('/');
   const { address, name, operation_type, property_type, price } = property;
 

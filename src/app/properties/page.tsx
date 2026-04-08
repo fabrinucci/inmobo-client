@@ -3,13 +3,13 @@ import { Property } from '@/components/properties';
 import { getProperties } from '@/services';
 
 interface Props {
-  searchParams: {
+  searchParams: Promise<{
     operation?: string;
-  };
+  }>;
 }
 
 export default async function PropertiesPage({ searchParams }: Props) {
-  const { operation } = searchParams;
+  const { operation } = await searchParams;
 
   const properties = await getProperties();
   const operationValue = operation === 'sale' ? 'sale' : operation === 'rent' ? 'rent' : null;
