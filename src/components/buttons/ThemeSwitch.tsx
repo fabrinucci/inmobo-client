@@ -8,6 +8,7 @@ export const ThemeSwitch = () => {
   const [isMounted, setIsMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setIsMounted(true), []);
 
   if (!isMounted) {
