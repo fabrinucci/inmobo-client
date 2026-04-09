@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation';
 import { getProperty } from '@/services';
 import { PropertyCard } from '@/components/properties';
 
+export const runtime = 'edge';
+
 interface Props {
   params: Promise<{
     slug: string;

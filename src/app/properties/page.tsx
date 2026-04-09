@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Property } from '@/components/properties';
 import { getProperties } from '@/services';
 
+export const runtime = 'edge';
+
 interface Props {
   searchParams: Promise<{
     operation?: string;
